@@ -128,6 +128,10 @@ def provider_throttle_map():
             TooManyRequests: (datetime.timedelta(minutes=5), "5 minutes"),
             ProviderError: (datetime.timedelta(minutes=10), "10 minutes"),
         },
+        "subtis": {
+            TooManyRequests: (datetime.timedelta(minutes=10), "10 minutes"),
+            APIThrottled: (datetime.timedelta(minutes=5), "5 minutes"),
+        },
     }
 
 
@@ -350,7 +354,8 @@ def get_providers_auth():
         'turkcealtyaziorg': {
             'cookies': settings.turkcealtyaziorg.cookies,
             'user_agent': settings.turkcealtyaziorg.user_agent,
-        }
+        },
+        'subtis': {},
     }
 
 

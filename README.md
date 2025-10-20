@@ -83,6 +83,7 @@ If you need something that is not already part of Bazarr, feel free to create a 
 - Subsunacs.net
 - SubSynchro
 - Subtitrari-noi.ro
+- Subtis
 - subtitri.id.lv
 - Subtitulamos.tv
 - Supersubtitles

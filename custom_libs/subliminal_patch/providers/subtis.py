@@ -254,14 +254,15 @@ class SubtisProvider(Provider):
         return self.subtitle_class(language, video, payload)
 
     def _select_language(self, languages: List[Language]) -> Language:
-        preferred = Language.fromalpha2("es")
-
+        # First, prefer non-forced, non-HI languages
         for language in languages:
             if language in self.languages and not language.forced and not language.hi:
                 return language
 
+        # Fallback: return first supported language (rebuilt without flags)
         for language in languages:
             if language in self.languages:
                 return Language.rebuild(language, forced=False, hi=False)
 
-        return preferred
+        # Default fallback
+        return Language.fromalpha2("es")
